@@ -1,0 +1,13 @@
+.MuiSvgIcon-root {
+    color: #fff5f5;
+    font-size: 1.9rem;
+}
+
+.MuiBottomNavigationAction-label {
+    color: #fff5f5;
+}
+
+.MuiButtonBase-root.active > .MuiBottomNavigationAction-label, 
+.MuiButtonBase-root.active > .MuiSvgIcon-root{
+    color:rgb(18, 0, 184);
+}

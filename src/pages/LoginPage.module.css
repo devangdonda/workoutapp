@@ -1,0 +1,31 @@
+.loginContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 35px;
+    width: 100%;
+}
+
+.visibilityIcon > svg{
+    color: black;
+}
+
+.input {
+    width: 90%;
+    margin: 10px;
+}
+
+.login {
+    border-radius: 20px;
+    width: 90%;
+}
