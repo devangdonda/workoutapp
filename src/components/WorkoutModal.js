@@ -1,11 +1,9 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ColorButton from "./ColorButton";
 import TextField from "@mui/material/TextField";
-import { Form } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -27,17 +25,19 @@ export default function WorkoutModal(props) {
   const handleClose = () => setOpen(false);
 
   async function addWorkoutHandler(workout) {
-    const response = await fetch(
+    const response= await fetch(
       `https://website-783f4-default-rtdb.firebaseio.com//workout/${props.id}.json`,
       {
         method: "POST",
-        body: JSON.stringify({ key: props.id, id: props.id, workout: workout }),
+        body: JSON.stringify({ key: workout.replace(/\s+/g, '').toLowerCase(), id: props.id, workout: workout }),
         headers: {
           "Content-Type": "application/json",
         },
       }
     );
-    
+    if (! response.ok) {
+      throw new Error("Could not post workout");
+    }
   }
   function workoutSubmitHandler(event) {
     props.updateList({ key: props.id, id: props.id, workout: event.target[0].value });

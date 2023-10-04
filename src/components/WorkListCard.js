@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function WorkListCard(props) {
   const navigate = useNavigate();
   return (
-    <Box sx={{ width: "90vw", marginBottom: "20px" }}>
+    <Box sx={{ width: "90vw", marginBottom: "6rem" }}>
       <Card variant="outlined">
         <CardContent>
           <Typography variant="h5" component="div">
@@ -62,7 +62,7 @@ export default function WorkListCard(props) {
           <ColorButton
             size="small"
             sx={{ marginBottom: "6px", marginLeft: "6px" }}
-            onClick={() => navigate(`workoutlog`)}
+            onClick={() => navigate(`${props.id}`)}
           >
             Work OUT
           </ColorButton>

@@ -26,7 +26,7 @@ const WorkoutPage = () => {
   return (
     <Box className={style.workoutBox}>
       {FIT_CARD.map(({ txt, image, key }) => (
-        <FitCard txt={txt} image={image} key={key} id= {key}/>
+        <FitCard txt={txt} image={image} key={key} id={key}/>
       ))}
     </Box>
   );

@@ -4,8 +4,8 @@ import RootPage from "./pages/RootPage";
 import FoodPage from "./pages/FoodPage";
 import WorkoutPage from "./pages/WorkoutPage";
 import ProgressPage from "./pages/ProgressPage";
-import WorkListPage, {loader as workoutListLoader} from "./pages/WorkListPage";
-import WorkoutLogPage from "./pages/WorkoutLogPage";
+import WorkListPage from "./pages/WorkListPage";
+import WorkoutLogPage, {loader as workoutLogLoader} from "./pages/WorkoutLogPage";
 
 const router = createBrowserRouter([
   {
@@ -25,14 +25,20 @@ const router = createBrowserRouter([
         element: <FoodPage />,
       },
       {
-        path: ":listID",
-        element: <WorkListPage />,
-        loader: workoutListLoader
+        path: ':listID',
+        loader: workoutLogLoader,
+        id: 'workout',
+        children: [
+          {
+            path: "",
+            element: <WorkListPage />,
+          },
+          {
+            path: ":workLogID",
+            element: <WorkoutLogPage />,
+          }
+        ]
       },
-      {
-        path: ":listID/workoutlog",
-        element: <WorkoutLogPage />,
-      }
     ],
   },
 ]);
